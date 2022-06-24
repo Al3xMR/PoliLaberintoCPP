@@ -250,7 +250,7 @@ void letreroFin(int i, int j){
 	imprcar(9+i, 1+j, 219);
 	imprcar(11+i, 1+j, 219);
 	imprcar(12+i, 1+j, 219);
-	imprcar(14+i, 1+j, 219);//
+	imprcar(14+i, 1+j, 219);
 	imprcar(0+i, 2+j, 219);
 	imprcar(2+i, 2+j, 219);
 	imprcar(4+i, 2+j, 219);
@@ -266,7 +266,7 @@ void letreroFin(int i, int j){
 	imprcar(5+i, 3+j, 219);
 	imprcar(6+i, 3+j, 219);
 	imprcar(8+i, 3+j, 219);
-	imprcar(12+i, 3+j, 219);//
+	imprcar(12+i, 3+j, 219);
 	imprcar(14+i, 3+j, 219);
 	imprcar(0+i, 4+j, 219);
 	imprcar(1+i, 4+j, 219);
@@ -283,7 +283,7 @@ void letreroFin(int i, int j){
 	imprcar(4+i, 6+j, 219);
 	imprcar(6+i, 6+j, 219);
 	imprcar(10+i, 6+j, 219);
-	imprcar(12+i, 6+j, 219);//
+	imprcar(12+i, 6+j, 219);
 	imprcar(13+i, 6+j, 219);
 	imprcar(14+i, 6+j, 219);
 	imprcar(16+i, 6+j, 219);
@@ -300,7 +300,7 @@ void letreroFin(int i, int j){
 	imprcar(7+i, 8+j, 219);
 	imprcar(9+i, 8+j, 219);
 	imprcar(12+i, 8+j, 219);
-	imprcar(13+i, 8+j, 219);//
+	imprcar(13+i, 8+j, 219);
 	imprcar(16+i, 8+j, 219);
 	imprcar(17+i, 8+j, 219);
 	imprcar(2+i, 9+j, 219);
@@ -607,7 +607,7 @@ bool verificar_limite(int x,int y){
 	switch(y){
 		case 3:{
 			for(int i=0; i<=92; i++){
-				if(x==3+i){				//3 al 95
+				if(x==3+i){
 					eslimite=true;
 				}
 			}
@@ -615,18 +615,18 @@ bool verificar_limite(int x,int y){
 		}
 		case 4:{
 			if(x==3||x==4||x==95){
-				eslimite=true;			//x=3, x=4 o x=95
+				eslimite=true;
 			}
 			break;
 		}
 		case 5:{
 			for(int i=0; i<=24; i++){
-				if(x==3+i){				//3 al 27
+				if(x==3+i){
 					eslimite=true;
 				}
 			}
 			for(int i=0; i<=62; i++){
-				if(x==33+i){			//33 al 95
+				if(x==33+i){
 					eslimite=true;
 				}
 			}
@@ -634,22 +634,22 @@ bool verificar_limite(int x,int y){
 		}
 		case 6:{
 			if(x==3||x==8||x==12||x==27||x==33||x==41||x==95){
-				eslimite=true;			//x=3, x=8, x=12, x==27, x=33, x=41 o x=95
+				eslimite=true;
 			}
 			break;
 		}
 		case 7:{
 			if(x==3||x==8||x==12||x==16||x==27||x==33||x==41||x==95){
-				eslimite=true;			
+				eslimite=true;
 			}
 			break;
 		}
 		case 8:{
 			if(x==3||x==8||x==12||x==16||x==33||x==95){
-				eslimite=true;			
+				eslimite=true;
 			}
 			for(int i=0; i<=43; i++){
-				if(x==46+i){			
+				if(x==46+i){
 					eslimite=true;
 				}
 			}
@@ -657,10 +657,10 @@ bool verificar_limite(int x,int y){
 		}
 		case 9:{
 			if(x==3||x==8||x==12||x==46||x==50||x==89||x==95){
-				eslimite=true;			
+				eslimite=true;
 			}
 			for(int i=0; i<=25; i++){
-				if(x==16+i){			
+				if(x==16+i){
 					eslimite=true;
 				}
 			}
@@ -668,10 +668,10 @@ bool verificar_limite(int x,int y){
 		}
 		case 10:{
 			if(x==3||x==8||x==12||x==16||x==22||x==27||x==41||x==46||x==50||x==89||x==95){
-				eslimite=true;			
+				eslimite=true;
 			}
 			for(int i=0; i<=31; i++){
-				if(x==54+i){			
+				if(x==54+i){
 					eslimite=true;
 				}
 			}
@@ -679,26 +679,26 @@ bool verificar_limite(int x,int y){
 		}
 		case 11:{
 			if(x==3||x==16||x==22||x==27||x==41||x==46||x==54||x==95){
-				eslimite=true;			
+				eslimite=true;
 			}
 			break;
 		}
 		case 12:{
 			if(x==16||x==22||x==27||x==33||x==41){
-				eslimite=true;			
+				eslimite=true;
 			}
 			for(int i=0; i<=9; i++){
-				if(x==3+i){			
+				if(x==3+i){
 					eslimite=true;
 				}
 			}
 			for(int i=0; i<=4; i++){
-				if(x==46+i){			
+				if(x==46+i){
 					eslimite=true;
 				}
 			}
 			for(int i=0; i<=41; i++){
-				if(x==54+i){			
+				if(x==54+i){
 					eslimite=true;
 				}
 			}
@@ -712,15 +712,15 @@ bool verificar_limite(int x,int y){
 		}
 		case 14:{
 			if(x==3||x==22||x==27||x==33||x==41||x==46||x==95){
-				eslimite=true;			
+				eslimite=true;
 			}
 			for(int i=0; i<=8; i++){
-				if(x==8+i){			
+				if(x==8+i){
 					eslimite=true;
 				}
 			}
 			for(int i=0; i<=39; i++){
-				if(x==50+i){			
+				if(x==50+i){
 					eslimite=true;
 				}
 			}
@@ -728,13 +728,13 @@ bool verificar_limite(int x,int y){
 		}
 		case 15:{
 			if(x==3||x==8||x==22||x==27||x==33||x==46||x==50||x==54||x==89||x==95){
-				eslimite=true;			
+				eslimite=true;
 			}
 			break;
 		}
 		case 16:{
 			if(x==3||x==8||x==22||x==27||x==33||x==46||x==50||x==54||x==89||x==95){
-				eslimite=true;			
+				eslimite=true;
 			}
 			break;
 		}
