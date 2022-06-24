@@ -16,17 +16,34 @@ using namespace conio;
 #define ABAJO 80
 
 void ejecutarjuego();
+void nombredejugador();
 void ir_a (int x, int y);
 void Ocultar_el_Cursor();
 void imprcar(int x, int y, int ascii);
 void pintarborde();
-void letrero(int i, int j);
+void letreroLaberinto(int i, int j);
 void menuprincipal();
 void ControlesYEncabezado();
 void imprimirmapa1();
+void letreroFin(int i, int j);
+void nivelcompletado();
 bool verificar_limite(int x,int y);
+int player=0;
+void pantallacreditos();
+void pantallapuntajes();
+void pantallaFinal();
+
+struct jugador{
+	int puntuacion;
+	string nombre;
+}; jugador usuario[10];
+
 
 int main(){
+	for(int i=0; i<10; i++){
+		usuario[i].nombre="----";
+		usuario[i].puntuacion=0;
+	}
 	Ocultar_el_Cursor();
 	menuprincipal();
 	
@@ -82,7 +99,7 @@ void pintarborde(){
 	}
 }
 
-void letrero(int i, int j){
+void letreroLaberinto(int i, int j){
 
 	imprcar(17+i, 15+j, 219);
 	imprcar(17+i, 16+j, 219);
@@ -216,13 +233,101 @@ void letrero(int i, int j){
 	imprcar(40+i, 13+j, 219);
 }
 
+void letreroFin(int i, int j){
+	imprcar(0+i, 0+j, 219);
+	imprcar(1+i, 0+j, 219);
+	imprcar(2+i, 0+j, 219);
+	imprcar(5+i, 0+j, 219);
+	imprcar(8+i, 0+j, 219);
+	imprcar(12+i, 0+j, 219);
+	imprcar(14+i, 0+j, 219);
+	imprcar(15+i, 0+j, 219);
+	imprcar(16+i, 0+j, 219);
+	imprcar(0+i, 1+j, 219);
+	imprcar(4+i, 1+j, 219);
+	imprcar(6+i, 1+j, 219);
+	imprcar(8+i, 1+j, 219);
+	imprcar(9+i, 1+j, 219);
+	imprcar(11+i, 1+j, 219);
+	imprcar(12+i, 1+j, 219);
+	imprcar(14+i, 1+j, 219);//
+	imprcar(0+i, 2+j, 219);
+	imprcar(2+i, 2+j, 219);
+	imprcar(4+i, 2+j, 219);
+	imprcar(6+i, 2+j, 219);
+	imprcar(8+i, 2+j, 219);
+	imprcar(10+i, 2+j, 219);
+	imprcar(12+i, 2+j, 219);
+	imprcar(14+i, 2+j, 219);
+	imprcar(15+i, 2+j, 219);
+	imprcar(0+i, 3+j, 219);
+	imprcar(2+i, 3+j, 219);
+	imprcar(4+i, 3+j, 219);
+	imprcar(5+i, 3+j, 219);
+	imprcar(6+i, 3+j, 219);
+	imprcar(8+i, 3+j, 219);
+	imprcar(12+i, 3+j, 219);//
+	imprcar(14+i, 3+j, 219);
+	imprcar(0+i, 4+j, 219);
+	imprcar(1+i, 4+j, 219);
+	imprcar(2+i, 4+j, 219);
+	imprcar(4+i, 4+j, 219);
+	imprcar(6+i, 4+j, 219);
+	imprcar(8+i, 4+j, 219);
+	imprcar(12+i, 4+j, 219);
+	imprcar(14+i, 4+j, 219);
+	imprcar(15+i, 4+j, 219);
+	imprcar(16+i, 4+j, 219);
+	imprcar(2+i, 6+j, 219);
+	imprcar(3+i, 6+j, 219);
+	imprcar(4+i, 6+j, 219);
+	imprcar(6+i, 6+j, 219);
+	imprcar(10+i, 6+j, 219);
+	imprcar(12+i, 6+j, 219);//
+	imprcar(13+i, 6+j, 219);
+	imprcar(14+i, 6+j, 219);
+	imprcar(16+i, 6+j, 219);
+	imprcar(17+i, 6+j, 219);
+	imprcar(2+i, 7+j, 219);
+	imprcar(4+i, 7+j, 219);
+	imprcar(6+i, 7+j, 219);
+	imprcar(10+i, 7+j, 219);
+	imprcar(12+i, 7+j, 219);
+	imprcar(16+i, 7+j, 219);
+	imprcar(18+i, 7+j, 219);
+	imprcar(2+i, 8+j, 219);
+	imprcar(4+i, 8+j, 219);
+	imprcar(7+i, 8+j, 219);
+	imprcar(9+i, 8+j, 219);
+	imprcar(12+i, 8+j, 219);
+	imprcar(13+i, 8+j, 219);//
+	imprcar(16+i, 8+j, 219);
+	imprcar(17+i, 8+j, 219);
+	imprcar(2+i, 9+j, 219);
+	imprcar(4+i, 9+j, 219);
+	imprcar(7+i, 9+j, 219);
+	imprcar(9+i, 9+j, 219);
+	imprcar(12+i, 9+j, 219);
+	imprcar(16+i, 9+j, 219);
+	imprcar(18+i, 9+j, 219);
+	imprcar(2+i, 10+j, 219);
+	imprcar(3+i, 10+j, 219);
+	imprcar(4+i, 10+j, 219);
+	imprcar(8+i, 10+j, 219);
+	imprcar(12+i, 10+j, 219);
+	imprcar(13+i, 10+j, 219);
+	imprcar(14+i, 10+j, 219);
+	imprcar(16+i, 10+j, 219);
+	imprcar(18+i, 10+j, 219);
+}
+
 void menuprincipal(){
 	char opc;
 	bool respuesta=false;
 	do{
 		textbackground(WHITE);
 		clrscr();
-		textcolor(BLUE); letrero(15, 0);
+		textcolor(BLUE); letreroLaberinto(15, 0);
 		textcolor(BLACK); ir_a(45, 23); printf("%i. JUGAR", 1);
 		ir_a(45, 24); printf("%i. PUNTAJES", 2);
 		ir_a(45, 25); printf("%i. CR%cDITOS", 3, 144);
@@ -239,15 +344,15 @@ void menuprincipal(){
 			break;
 		}
 		case '2':{
-			cout<<"AKI BAN LOS PUNTAJES";
+			pantallapuntajes();
 			break;
 		}
 		case '3':{
-			cout<<"AKI BAN LOS KREDITOS";
+			pantallacreditos();
 			break;
 		}
 		case '4':{
-			cout<<"AKI SE SALE :V";
+			pantallaFinal();
 			break;
 		}
 	}
@@ -817,47 +922,180 @@ bool verificar_limite(int x,int y){
 	return eslimite;
 }
 
+int puntuar(int x, int y){
+	int puntaje=0;
+	if(x==80&&y==20) puntaje=10;
+	if(x==65&&y==26) puntaje=10;
+	if(x==81&&y==18) puntaje=10;
+	if(x==58&&y==13) puntaje=10;
+	if(x==85&&y==9) puntaje=10;
+	if(x==37&&y==18) puntaje=10;
+	if(x==25&&y==24) puntaje=10;
+	if(x==9&&y==18) puntaje=10;
+	if(x==16&&y==6) puntaje=10;
+	if(x==24&&y==4) puntaje=10;
+	if(x==41&&y==8) puntaje=-5;
+	if(x==35&&y==20) puntaje=-5;
+	if(x==9&&y==27) puntaje=-5;
+	if(x==10&&y==27) puntaje=-5;
+	if(x==11&&y==27) puntaje=-5;
+	if(x==8&&y==20) puntaje=-5;
+	if(x==23&&y==21) puntaje=-5;
+	if(x==24&&y==21) puntaje=-5;
+	if(x==25&&y==21) puntaje=-5;
+	if(x==26&&y==21) puntaje=-5;
+	if(x==60&&y==28) puntaje=-5;
+	if(x==80&&y==26) puntaje=-5;
+	if(x==69&&y==20) puntaje=-5;
+	if(x==41&&y==28) puntaje=-5;
+	if(x==69&&y==15) puntaje=-5;
+	if(x==69&&y==16) puntaje=-5;
+	if(x==50&&y==20) puntaje=-5;
+	if(x==50&&y==13) puntaje=-5;
+	if(x==50&&y==11) puntaje=-5;
+	if(x==85&&y==11) puntaje=-5;
+	if(x==12&&y==11) puntaje=-5;
+	if(x==8&&y==11) puntaje=-5;
+	if(x==50&&y==4) puntaje=-5;
+	if(x==70&&y==4) puntaje=-5;
+	if(x==86&&y==4) puntaje=-5;
+	return puntaje;
+}
+
+void nombredejugador(){
+	clrscr();
+	ir_a(35, 14); printf("Introduce tu nombre:");
+	ir_a(35, 16); cin>>usuario[player].nombre;
+}
+
+void nivelcompletado(){
+	textbackground(WHITE); 
+	clrscr();
+	letreroFin(40, 12);
+	ir_a(35, 27); cout<<"Jugador: "<<usuario[player].nombre;
+	ir_a(35, 28); cout<<"Puntuacion: "<<usuario[player].puntuacion;
+	Sleep (3000);
+}
+
 void ejecutarjuego(){
+	nombredejugador();
 	textbackground(YELLOW); clrscr();
 	textcolor(MAGENTA); imprimirmapa1();
 	textcolor(BLACK); ControlesYEncabezado();
 	textcolor(BLACK);
-	int x=10, y=10;
+	int x=93, y=28;
+	ir_a(x, y); printf("%c", 207);
+	int puntaje=100;
+	bool yapaso=false;
 	bool game_over = false;
 	while (!game_over){
 		if (kbhit()){
+			ir_a(86, 1); cout<<"     ";
+			ir_a(86, 1); cout<<puntaje;
 			char tecla = getch();
 			ir_a (x,y); 
 			cout << (" ");
 			if(tecla == IZQUIERDA){
 				if(verificar_limite(x-1, y)==false){
 					x--;
+					puntaje=puntaje+puntuar(x, y);
 				}
 			}
 			if(tecla == DERECHA){
 				if(verificar_limite(x+1, y)==false){
 					x++;
+					puntaje=puntaje+puntuar(x, y);
 				}
 			}
 			if(tecla == ABAJO){
 				if(verificar_limite(x, y+1)==false){
 					y++;
+					puntaje=puntaje+puntuar(x, y);
 				}
 			}
 			if(tecla == ARRIBA){
 				if(verificar_limite(x, y-1)==false){
 					y--;
+					puntaje=puntaje+puntuar(x, y);
 				}
 			}
 			if(tecla == 'q'||tecla == 'Q') game_over = true;
+			if(x==5&&y==4) game_over = true;
 			ir_a (x,y); 
 			printf("%c", 207);
 		}
 		Sleep (30);		
 	}
+	usuario[player].puntuacion=puntaje;
+	nivelcompletado();
+	if(player==9){
+		player==0;
+	}else{
+		player++;
+	}
 	clrscr();
 	menuprincipal();
 }
 
+void pantallapuntajes(){
+	textbackground(DARKGRAY);
+	textcolor(WHITE);
+	clrscr();
+	ir_a(45, 3); cout<<"PUNTAJES";
+	ir_a(45, 4); cout<<"========";
+	ir_a(25, 7); cout<<usuario[0].nombre;
+	ir_a(25, 10); cout<<usuario[1].nombre;
+	ir_a(25, 13); cout<<usuario[2].nombre;
+	ir_a(25, 16); cout<<usuario[3].nombre;
+	ir_a(25, 19); cout<<usuario[4].nombre;
+	ir_a(25, 22); cout<<usuario[5].nombre;
+	ir_a(25, 25); cout<<usuario[6].nombre;
+	ir_a(25, 28); cout<<usuario[7].nombre;
+	ir_a(25, 31); cout<<usuario[8].nombre;
+	ir_a(25, 34); cout<<usuario[9].nombre;
+	
+	ir_a(70, 7); cout<<usuario[0].puntuacion;
+	ir_a(70, 10); cout<<usuario[1].puntuacion;
+	ir_a(70, 13); cout<<usuario[2].puntuacion;
+	ir_a(70, 16); cout<<usuario[3].puntuacion;
+	ir_a(70, 19); cout<<usuario[4].puntuacion;
+	ir_a(70, 22); cout<<usuario[5].puntuacion;
+	ir_a(70, 25); cout<<usuario[6].puntuacion;
+	ir_a(70, 28); cout<<usuario[7].puntuacion;
+	ir_a(70, 31); cout<<usuario[8].puntuacion;
+	ir_a(70, 34); cout<<usuario[9].puntuacion;
+	getch();
+	menuprincipal();
+}
 
+void pantallacreditos(){
+	
+	textbackground(BLACK);
+	clrscr();
+	textcolor(DARKGRAY);
+	letreroLaberinto(15, -6);
+	
+	ir_a(35,15); printf("ESCUELA POLITECNICA NACIONAL");
+	ir_a(40,16); printf("PROGRAMACION I, CD");
+	ir_a(43,17); printf("PERIODO 2021-B");
+	
+	textcolor(WHITE); ir_a(15,20); printf("%c     KEVIN ALEXIS MARTINEZ RUEDA", 175);
+	textcolor(CYAN); ir_a(22,21); printf("%cNo importa los obstaculos, el quiere construir su futuro con la carrera%c", 34, 34);
+	textcolor(WHITE); ir_a(15,24); printf("%c     ANDRES PATRICIO FERNANDEZ OBACO", 175);
+	textcolor(CYAN); ir_a(22,25); printf("%cSu mayor anhelo es vivir programando%c", 34, 34);
+	textcolor(WHITE); ir_a(15,28); printf("%c     MELANY MIREYA ENRIQUEZ ONOFA", 175);
+	textcolor(CYAN); ir_a(22,29); printf("%cAspira a crear un algoritmo que le permita recorrer el mundo%c", 34, 34);
+	
+	textcolor(DARKGRAY); ir_a(43,34); printf("ECUADOR - 2022");
+	getch();
+	menuprincipal();
+}
 
+void pantallaFinal(){
+	textbackground(WHITE); 
+	clrscr();
+	letreroFin(40, 12);
+	ir_a(40, 27); printf("%cGRACIAS POR JUGAR%c", 173, 33);
+	textcolor(CYAN); ir_a(28,35); printf("%cSi puedes imaginarlo, puedes programarlo%c", 34, 34);
+	textcolor(WHITE);
+}
